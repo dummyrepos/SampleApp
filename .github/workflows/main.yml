@@ -1,0 +1,16 @@
+  - name: Build Jenkins jobs
+  # You may pin to the exact commit or the version.
+  # uses: yugalarora/build-jenkins-job@20b7c05fb3de0cdc08783fdcf90fc73dc686d3c1
+  uses: yugalarora/build-jenkins-job@v1.0.1
+  with:
+    # jenkins server url
+    jenkins-url: http://34.125.74.225:8080/
+    # token to access jenkins server
+    jenkins-token: 110cb3d353399f1eadc30f708e5ef597fd
+    # user name
+    user: qtdevops
+    # job/folder_name/job/job_name
+    job-path: test
+    # params to run the job. JSON string. i.e '{'param1': 'value1', 'param2': 'value2'}' 
+    job-params: # optional
+          
