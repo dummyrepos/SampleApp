@@ -29,5 +29,10 @@ namespace SampleApp.Controllers
             })
             .ToArray();
         }
+
+        public IEnumerable<WeatherForecast> GetAll()
+        {
+            return null;
+        }
     }
 }
