@@ -1,0 +1,20 @@
+name: Trigger Jenkins Job on PR
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  trigger-jenkins:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger Jenkins Job
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: http://34.125.74.225:8080/job/test/build?token=110cb3d353399f1eadc30f708e5ef597fd
+        method: POST
+        contentType: 'application/x-www-form-urlencoded'
+        headers: '{"Authorization": "Basic ${{ secrets.JENKINS_AUTH }}"}'
+      env:
+        JENKINS_AUTH: ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} | base64
+
